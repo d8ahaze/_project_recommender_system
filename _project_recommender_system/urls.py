@@ -6,11 +6,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('collaborative_filtering/', include('collaborative_filtering/urls')),
     path('admin/', admin.site.urls),
-]
-
-urlpatterns += [
-    path('collaborative_filtering/', include('collaborative_filtering/urls'))
 ]
 
 urlpatterns += [
