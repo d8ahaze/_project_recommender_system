@@ -2,6 +2,13 @@ import pandas as pd
 
 XML_FILE = pd.read_excel("./dataset/dataset_news_1.xlsx")
 
+# Функция чтения строки из датасета
+#
+def read_column(str_nude: int):
+    if 0 >= str_nude >= len(XML_FILE["url_clean"]):
+        return "Error range"
+    return [XML_FILE["user_id"][str_nude], "http://" + XML_FILE["url_clean"][str_nude]]
+
 
 # Входные данные номер строки из xlsx (NOTICE: с 1)
 # Возвращает либо ошибоку, либо ссылку
@@ -24,4 +31,3 @@ def range_news_for_user(user_id: int):
     for url in range_user:
         urls.append("http://" + url)
     return urls
-
