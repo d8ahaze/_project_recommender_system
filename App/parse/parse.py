@@ -6,9 +6,7 @@ import requests
 # Возвращает response_code
 def get_html_code(url):
     response_code = requests.get(url)
-    if response_code == 200:
-        return response_code
-    return f"Error: {response_code}"
+    return response_code
 
 #news-article-spheres__link (find_all) сферы деятельности на один на сайте
 #news-article-place__name (find)  местность
@@ -18,8 +16,10 @@ def get_html_code(url):
 # выполняем парсинг в html_code.
 # По всей странице ищем элемент заданный в html_tag с классом переданном в class_name
 # вернет либо None, либо список с тегами
-def parse_tags(html_code, html_tag, class_name):
+def parse_tags(url, html_tag, class_name):
     # html_code.text это html код страницы
+
+    html_code = get_html_code(url)
     soup = BeautifulSoup(html_code.text, "lxml")
     # выполняем поиск по всей странице
     tags = soup.find_all(html_tag, class_name)
@@ -34,4 +34,7 @@ def parse_tags(html_code, html_tag, class_name):
         # если бы было просто tag, тогда передался бы целый элемент
         all_tags.append(tag.text)
     return all_tags
+
+
+
 
