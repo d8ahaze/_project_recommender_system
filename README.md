@@ -1,6 +1,7 @@
-1. pip install -r requirements.txt
-2. Для запуска системы написать python -m uvicorn app.main:app --port 8000 --reload
-3. Затем перейти по url указанному в решении (http://127.0.0.1:8000/)
+1. > git clone https://github.com/d8ahaze/_project_recommender_system.git
+2. pip install -r requirements.txt
+3. Для запуска системы написать python -m uvicorn app.main:app --port 8000 --reload
+4. Затем перейти по url указанному в решении (http://127.0.0.1:8000/)
 
 Задача 10: Создать рекомендательную систему новостей для пользователей mos.ru и приложения "Моя Москва"
 ======================================================================================================
